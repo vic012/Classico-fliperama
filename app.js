@@ -4,19 +4,19 @@ let allEnemies = [];
 class Enemy{
 	constructor(){
 		this.sprite = 'images/enemy-bug.png';
-		this.x = 0;
+		this.x = -100;
 		this.y = 60;
 		this.speed = 2;
 	}
 	update(dt){
+		this.x += this.speed * 2;
 	}
 	render(){
 		ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 	}
 }
 
-
-allEnemies = [new Enemy(), new Enemy()];
+allEnemies = [new Enemy()];
 // Now write your own player class
 // This class requires an update(), render() and
 // a handleInput() method.
@@ -54,4 +54,3 @@ document.addEventListener('keyup', function(e) {
 
     player.handleInput(allowedKeys[e.keyCode]);
 });
-
