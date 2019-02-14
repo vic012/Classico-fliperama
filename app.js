@@ -2,60 +2,24 @@
 let allEnemies = [];
 
 class Enemy{
-    constructor(){
-        this.sprite = 'images/enemy-bug.png';
-        this.x = 0;
-        this.y = 60;
-        this.speed = 3;
-    }
-    update(dt){
-        this.x += this.speed * dt * 61;
-        if (this.x > 500){
-            this.x = -100;
-        }
-    }
-    render(){
-        ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-    }
+	constructor(posX, posY, speed){
+		this.sprite = 'images/enemy-bug.png';
+		this.x = posX;
+		this.y = posY;
+		this.speed = speed;
+	}
+	update(dt){
+		this.x += this.speed * 2;
+		if (this.x > 500){
+			this.x = -100;
+		}
+	}
+	render(){
+		ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+	}
 }
 
-class EnemyTwo{
-    constructor(){
-        this.sprite = 'images/enemy-bug.png';
-        this.x = 0;
-        this.y = 143;
-        this.speed = 1;
-    }
-    update(dt){
-        this.x += this.speed * dt * 65;
-        if (this.x > 500){
-            this.x = -100;
-        }
-    }
-    render(){
-        ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-    }
-}
-
-class EnemyThree{
-    constructor(){
-        this.sprite = 'images/enemy-bug.png';
-        this.x = 0;
-        this.y = 226;
-        this.speed = 5;
-    }
-    update(dt){
-        this.x += this.speed * dt * 68;
-        if (this.x > 500){
-            this.x = -100;
-        }
-    }
-    render(){
-        ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-    }
-}
-
-allEnemies = [new Enemy(), new EnemyTwo(), new EnemyThree()];
+allEnemies = [new Enemy(-100,60,2.5), new Enemy(-100,143,2), new Enemy(-100,226,3.5)];
 // Now write your own player class
 // This class requires an update(), render() and
 // a handleInput() method.
@@ -65,10 +29,22 @@ class Player {
         this.sprite = 'images/char-boy.png';
         this.x = 202;
         this.y = 404;
-        this.speed = 1.3;
+        this.speed = 2;
     }
     handleInput(direct){
-    }    
+    	if (direct === 'right') {
+    		this.x += 83;
+    	}
+    	if (direct === 'left') {
+    		this.x -= 83;
+    	}
+    	if (direct === 'down') {
+    		this.y += 83;
+    	}
+    	if (direct === 'up') {
+    		this.y -= 83;
+    	}
+    }
     update(dt){
 
     }
@@ -80,8 +56,6 @@ class Player {
 
 const player = new Player()
 
-
-
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
@@ -90,6 +64,7 @@ const player = new Player()
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
+
 document.addEventListener('keyup', function(e) {
     var allowedKeys = {
         37: 'left',
@@ -100,7 +75,3 @@ document.addEventListener('keyup', function(e) {
 
     player.handleInput(allowedKeys[e.keyCode]);
 });
-
-// This listens for key presses and sends the keys to your
-// Player.handleInput() method. You don't need to modify this.
-
