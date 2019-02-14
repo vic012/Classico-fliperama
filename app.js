@@ -32,16 +32,16 @@ class Player {
         this.speed = 2;
     }
     handleInput(direct){
-    	if (direct === 'right') {
-    		this.x += 83;
+    	if (direct === 'right' && this.x < 390) {
+    		this.x += 101;
     	}
-    	if (direct === 'left') {
-    		this.x -= 83;
+    	if (direct === 'left' && this.x > 10) {
+    		this.x -= 101;
     	}
-    	if (direct === 'down') {
+    	if (direct === 'down' && this.y < 400) {
     		this.y += 83;
     	}
-    	if (direct === 'up') {
+    	if (direct === 'up' && this.y > 5) {
     		this.y -= 83;
     	}
     }
@@ -53,8 +53,16 @@ class Player {
     }
 }
 
-
 const player = new Player()
+
+function Colid(player, allEnemies){
+	for ( let c =  0 ; c <  allEnemies.length ; c ++ ){
+		if (allEnemies[c].x  <  player.x  +  50  && allEnemies [c]. x  +  50  >  player.x  && allEnemies[c].y  <  player.y + 50  && allEnemies[c].y  +  50  >  player.y){
+			player. x  =  202 ;
+      		player. y  =  404 ;
+    	}
+	}
+ }   
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
