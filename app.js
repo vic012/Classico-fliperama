@@ -2,21 +2,21 @@
 let allEnemies = [];
 
 class Enemy{
-	constructor(posX, posY, speed){
-		this.sprite = 'images/enemy-bug.png';
-		this.x = posX;
-		this.y = posY;
-		this.speed = speed;
-	}
-	update(dt){
-		this.x += this.speed * 2;
-		if (this.x > 500){
-			this.x = -100;
-		}
-	}
-	render(){
-		ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-	}
+    constructor(posX, posY, speed){
+        this.sprite = 'images/enemy-bug.png';
+        this.x = posX;
+        this.y = posY;
+        this.speed = speed;
+    }
+    update(dt){
+        this.x += this.speed * 2;
+        if (this.x > 500){
+            this.x = -100;
+        }
+    }
+    render(){
+        ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+    }
 }
 
 allEnemies = [new Enemy(-100,60,2.5), new Enemy(-100,143,2), new Enemy(-100,226,3.5)];
@@ -32,21 +32,27 @@ class Player {
         this.speed = 2;
     }
     handleInput(direct){
-    	if (direct === 'right' && this.x < 390) {
-    		this.x += 101;
-    	}
-    	if (direct === 'left' && this.x > 10) {
-    		this.x -= 101;
-    	}
-    	if (direct === 'down' && this.y < 400) {
-    		this.y += 83;
-    	}
-    	if (direct === 'up' && this.y > 5) {
-    		this.y -= 83;
-    	}
+        if (direct === 'right' && this.x < 390) {
+            this.x += 101;
+        }
+        if (direct === 'left' && this.x > 10) {
+            this.x -= 101;
+        }
+        if (direct === 'down' && this.y < 400) {
+            this.y += 83;
+        }
+        if (direct === 'up' && this.y > 5) {
+            this.y -= 83;
+        }
     }
-    update(dt){
-
+    update(){
+        if (this.y <= 0){
+            console.log("passou no teste até aqui");
+            this.x = 202;
+            console.log("passou no teste 2");
+            this.y = 404;
+            console.log("passou no teste 3");
+        }
     }
     render(){
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
@@ -55,15 +61,18 @@ class Player {
 
 const player = new Player()
 
-function colid(player, allEnemies){
-	for ( let c =  0 ; c <  allEnemies.length ; c ++ ){
-		if (allEnemies[c].x  <  player.x && allEnemies [c]. x  >  player.x  && allEnemies[c].y  <  player.y && allEnemies[c].y >  player.y){
-			player. x  =  202 ;
-      			player. y  =  404 ;
-    		}
-	}
+
+function checkcolid(play, enemy){
+    for (let c = 0; c < enemy['length'] ; c ++ ){
+        if (enemy[c].x  <  play.x && enemy[c]. x  >  play.x && enemy[c].y  <  play.y && enemy[c].y >  play.y){
+            player. x  =  202 ;
+            player. y  =  404 ;
+        }
+    }
 }
-colid(player, allEnemies);
+
+player.update();
+checkcolid(player,allEnemies);
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
