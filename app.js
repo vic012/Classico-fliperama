@@ -55,14 +55,15 @@ class Player {
 
 const player = new Player()
 
-function Colid(player, allEnemies){
+function colid(player, allEnemies){
 	for ( let c =  0 ; c <  allEnemies.length ; c ++ ){
-		if (allEnemies[c].x  <  player.x  +  50  && allEnemies [c]. x  +  50  >  player.x  && allEnemies[c].y  <  player.y + 50  && allEnemies[c].y  +  50  >  player.y){
+		if (allEnemies[c].x  <  player.x && allEnemies [c]. x  >  player.x  && allEnemies[c].y  <  player.y && allEnemies[c].y >  player.y){
 			player. x  =  202 ;
-      		player. y  =  404 ;
-    	}
+      			player. y  =  404 ;
+    		}
 	}
- }   
+}
+colid(player, allEnemies);
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
