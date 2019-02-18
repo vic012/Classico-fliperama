@@ -7,6 +7,10 @@ class Enemy{
         this.x = posX;
         this.y = posY;
         this.speed = speed;
+
+        const tamanhoDaLarguraInimigo = {
+            x: 
+        }
     }
     update(dt){
         this.x += this.speed * 2;
@@ -62,11 +66,14 @@ class Player {
 const player = new Player()
 
 
-function checkcolid(play, enemy){
-    for (let c = 0; c < enemy['length'] ; c ++ ){
-        if (enemy[c].x  <  play.x && enemy[c]. x  >  play.x && enemy[c].y  <  play.y && enemy[c].y >  play.y){
-            player. x  =  202 ;
-            player. y  =  404 ;
+colid(player, allEnemies) {
+    for (let c = 0; c < allEnemies.length; c ++) {
+        if (player.x < allEnemies[c].x + tamanhoDaLarguraInimigo &&
+            player.x + tamanhoLarguraJogador > allEnemies[c].x &&
+            player.y < allEnemies[c].y + tamanhoAlturaInimigo &&
+            player.y + tamanhoAlturaJogador > allEnemies[c].y) {
+            player.x = 202;
+            player.y = 404;
         }
     }
 }
