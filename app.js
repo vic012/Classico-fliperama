@@ -7,15 +7,15 @@ class Enemy{
         this.x = posX;
         this.y = posY;
         this.speed = speed;
-
-        const tamanhoDaLarguraInimigo = {
-            x: 
-        }
+        this.largura = {x: this.x, width: 50};
+        this.altura = {y: this.y, height: 50};
     }
     update(dt){
         this.x += this.speed * 2;
+        this.largura = this.x;
         if (this.x > 500){
             this.x = -100;
+            this.largura = -100;
         }
     }
     render(){
@@ -34,28 +34,32 @@ class Player {
         this.x = 202;
         this.y = 404;
         this.speed = 2;
-    }
+        this.largura = {x: this.x, width: 50};
+        this.altura = {y: this.y, height: 50};
+
+        }
     handleInput(direct){
         if (direct === 'right' && this.x < 390) {
             this.x += 101;
+            this.largura += 101;
         }
         if (direct === 'left' && this.x > 10) {
             this.x -= 101;
+            this.largura -= 101;
         }
         if (direct === 'down' && this.y < 400) {
             this.y += 83;
+            this.altura += 83;
         }
         if (direct === 'up' && this.y > 5) {
             this.y -= 83;
+            this.altura -= 83;
         }
     }
     update(){
         if (this.y <= 0){
-            console.log("passou no teste até aqui");
             this.x = 202;
-            console.log("passou no teste 2");
             this.y = 404;
-            console.log("passou no teste 3");
         }
     }
     render(){
@@ -66,20 +70,21 @@ class Player {
 const player = new Player()
 
 
-colid(player, allEnemies) {
+function colid(player, allEnemies) {
     for (let c = 0; c < allEnemies.length; c ++) {
-        if (player.x < allEnemies[c].x + tamanhoDaLarguraInimigo &&
-            player.x + tamanhoLarguraJogador > allEnemies[c].x &&
-            player.y < allEnemies[c].y + tamanhoAlturaInimigo &&
-            player.y + tamanhoAlturaJogador > allEnemies[c].y) {
+        if (player.x < allEnemies[c].x + Enemy.largura &&
+            player.x + player.largura > allEnemies[c].x &&
+            player.y < allEnemies[c].y + Enemy.altura &&
+            player.y + player.altura > allEnemies[c].y) {
             player.x = 202;
             player.y = 404;
+            player.update();
         }
     }
 }
 
 player.update();
-checkcolid(player,allEnemies);
+colid(player,allEnemies);
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
