@@ -85,7 +85,7 @@ class Player {
             this.y = 404;
         }
         //verificação de colisão a cada atualização 
-        this.colid(jogador.inimigos)
+        this.colid(jogador, inimigos)
     }
     //Desenha o player na tela, e de acordo com as suas coordenadas
     render() {
