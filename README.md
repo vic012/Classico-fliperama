@@ -15,7 +15,7 @@ que traz um estilo básico e padrão para o layout onde o jogo será rodado, dessa 
 outros arquivos javascripts dentro da pasta (js): engine.js, resources.js e app.js. 
 Abra o index.html em seu navegador, em seguida, controle o player até a água - parte superior do cenário sem colidir com
 nenhum inimigo, se o usuário chegar até a água sem ocasionar nenhuma colisão o jogo foi completado, porém se o player
-chocar-se com algum inimigo o jogo volta ao seu local de origem e o jogo é automaticamente reiniciado.
+chocar-se com algum inimigo o jogo volta ao seu local de origem e o jogo é automaticamente reiniciados.
 
 2. COMO O JOGO É REPRODUZIDO.
 A engine.js é responsável pelo loop do jogo, que consiste em uma atualização rápida de quadros, onde cada item
