@@ -109,12 +109,12 @@ document.addEventListener('keyup', function (e) {
 });
 
 
-/*links utilizados no projeto:
-============================
-https://developer.mozilla.org/kab/docs/Games/Techniques/2D_collision_detection
-https://www.w3schools.com/graphics/game_canvas.asp
-https://developer.mozilla.org/en-US/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript
-https://stackoverflow.com/questions/17583366/javascript-cannot-read-property-length-of-undefined-when-checking-a-variable/17583387
-============================
-suporte e ajuda:
-Alexandre (Coordenador de Comunidade)*/
+//links utilizados no projeto:
+//============================
+//https://developer.mozilla.org/kab/docs/Games/Techniques/2D_collision_detection
+//https://www.w3schools.com/graphics/game_canvas.asp
+//https://developer.mozilla.org/en-US/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript
+//https://stackoverflow.com/questions/17583366/javascript-cannot-read-property-length-of-undefined-when-checking-a-variable/17583387
+//============================
+//suporte e ajuda:
+//Alexandre (Coordenador de Comunidade)*/
