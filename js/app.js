@@ -17,7 +17,7 @@ class Enemy {
     /*Aqui está presente o método de atualização dos inimigos onde seu SPEED será atualizado
     Também faz com que os inimigos se movam no cenário, recebe o argumento (dt) passado pelo engine.js*/
     update(dt) {
-        this.x += this.speed * 2;
+        this.x += this.speed * dt;
         if (this.x > 500) {
             this.x = -100;
         }
@@ -30,7 +30,7 @@ class Enemy {
 }
 
 //A criação de três objetos inimigos por meio da class Enemy
-allEnemies = [new Enemy(-100, 60, 2.5), new Enemy(-100, 143, 2), new Enemy(-100, 226, 3.5)];
+allEnemies = [new Enemy(-100, 60, 325), new Enemy(-100, 143, 298), new Enemy(-100, 226, 362)];
 
 //A classe responsável por criar as dimensões, atualização, redenrização e animação do player;
 class Player {
