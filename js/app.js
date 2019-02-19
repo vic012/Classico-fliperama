@@ -69,23 +69,23 @@ class Player {
         for (let c = 0; c < inimigos.length; c++) {
             if (jogador.x < inimigos[c].x + inimigos[c].largura &&
                 jogador.x + jogador.largura > inimigos[c].x &&
-                jogador.y < allEnemies[c].y + inimigos[c].altura &&
+                jogador.y < inimigos[c].y + inimigos[c].altura &&
                 jogador.y + jogador.altura > inimigos[c].y) {
                 jogador.x = 202;
                 jogador.y = 404;
-                this.update()
+                
             }
         }
     }
     /*Aqui é possível identificar quando o player atigi a água, fazendo com que o player
     volte ao seu local de origem*/
-    update() {
+    update(jogador, inimigos) {
         if (this.y <= 0) {
             this.x = 202;
             this.y = 404;
         }
         //verificação de colisão a cada atualização 
-        this.colid(player,allEnemies)
+        this.colid(jogador.inimigos)
     }
     //Desenha o player na tela, e de acordo com as suas coordenadas
     render() {
