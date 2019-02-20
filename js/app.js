@@ -1,3 +1,4 @@
+'use strict'
 //Os inimigos e o player serão instanciados aqui
 let allEnemies = [];
 
